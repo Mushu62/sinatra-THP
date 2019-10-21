@@ -1,4 +1,9 @@
+require 'bundler'
+require 'gossip'
+Bundler.require
+
 class ApplicationController < Sinatra::Base
+
     get '/' do
         erb :index
       end
@@ -7,4 +12,9 @@ class ApplicationController < Sinatra::Base
       erb :new_gossip
     end
 
+    post '/gossips/new/' do
+      Gossip.new.save
+    end
+
 end
+
